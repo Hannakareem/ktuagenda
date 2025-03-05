@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KTU Agenda - Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #000;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        .logo {
+            width: 200px; /* Adjusted logo size */
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            font-size: 1em;
+            background: #222;
+            color: white;
+        }
+        .button {
+            width: 100%;
+            padding: 10px;
+            background: gold;
+            color: black;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .signup-text {
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        .signup-text a {
+            color: gold;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="agenda-removebg-preview (2).png" class="logo" alt="KTU Agenda Logo"> <!-- Logo -->
+
+    <div class="container">
+        <input type="email" class="input-field" placeholder="Enter your email" required>
+        <input type="password" class="input-field" placeholder="Enter your password" required>
+        
+        <button class="button" onclick="login()">Login</button>
+
+        <div class="signup-text">
+            Already have an account? <a href="signup.html">Sign Up</a>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            alert("Login function will be implemented soon!");
+            // Redirect or add backend logic here
+        }
+    </script>
+
+</body>
+</html>

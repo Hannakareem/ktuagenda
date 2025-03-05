@@ -4,20 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KTU Agenda</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+        }
+        .container {
+            text-align: center;
+        }
+        .logo {
+            width: 500px; /* Increased size */
+            height: auto;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1 id="animated-text">Welcome to KTU Agenda</h1>
-        <p id="sub-text">Stay updated with university events</p>
+        <img src="agenda-removebg-preview (1).png" class="logo" alt="KTU Agenda Logo">
     </div>
+    
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            setTimeout(() => {
-                window.location.href = "form.html"; // Redirect to form page
-            }, 3000);
-        });
+        setTimeout(() => {
+            window.location.href = 'page2.html'; // Redirect to the next page after animation
+        }, 4000);
     </script>
 </body>
 </html>
+
 

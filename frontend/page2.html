@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KTU Agenda - Registration</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #000;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        .logo {
+            width: 300px; /* Increased Logo Size */
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+        .input-field, .dropdown {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            font-size: 1em;
+        }
+        .input-field {
+            background: #222;
+            color: white;
+        }
+        .dropdown {
+            background: #333;
+            color: white;
+        }
+        .button {
+            width: 100%;
+            padding: 10px;
+            background: gold;
+            color: black;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="agenda-removebg-preview (2).png" class="logo" alt="KTU Agenda Logo"> <!-- Larger Logo -->
+
+    <div class="container">
+        <input type="text" class="input-field" placeholder="Enter your name" required>
+
+        <select class="dropdown">
+            <option value="" disabled selected>Select Semester</option>
+            <option value="1">Semester 1</option>
+            <option value="2">Semester 2</option>
+            <option value="3">Semester 3</option>
+            <option value="4">Semester 4</option>
+            <option value="5">Semester 5</option>
+            <option value="6">Semester 6</option>
+            <option value="7">Semester 7</option>
+            <option value="8">Semester 8</option>
+        </select>
+
+        <select class="dropdown">
+            <option value="" disabled selected>Select Role</option>
+            <option value="student">Student</option>
+            <option value="faculty">Faculty</option>
+        </select>
+
+        <button class="button" onclick="redirectToLogin()">Next</button>
+    </div>
+
+    <script>
+        function redirectToLogin() {
+            window.location.href = "login.html"; // Redirect to login page
+        }
+    </script>
+
+</body>
+</html>
