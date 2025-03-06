@@ -18,31 +18,33 @@
             color: white;
         }
         .logo {
-            width: 200px; /* Adjusted logo size */
+            width: 200px;
             height: auto;
             margin-bottom: 20px;
         }
         .container {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(96, 95, 75, 0.125);
             padding: 20px;
             border-radius: 10px;
             text-align: center;
             width: 300px;
         }
         .input-field {
-            width: 100%;
+            width: 95%; /* Updated to match dropdown size */
             padding: 10px;
-            margin: 10px 0;
+            margin: 10px auto;
             border-radius: 5px;
             border: none;
             font-size: 1em;
             background: #222;
             color: white;
+            display: block;
+            text-align: center;
         }
         .button {
-            width: 100%;
+            width: 90%;
             padding: 10px;
-            background: gold;
+            background: rgb(39, 198, 158);
             color: black;
             font-size: 1em;
             border: none;
@@ -55,15 +57,61 @@
             font-size: 0.9em;
         }
         .signup-text a {
-            color: gold;
+            color: rgb(213, 203, 19);
             text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Signup Popup Styles */
+        .popup {
+            display: none;
+            position: fixed;
+            background: rgb(216, 199, 12);
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0px 0px 10px rgb(241, 241, 241);
+            width: 320px;
+            text-align: center;
+        }
+        .popup .input-field {
+            background: #ddd;
+            color: black;
+            width: 95%; /* Matching dropdown size */
+            display: block;
+            margin: 10px auto;
+            text-align: center;
+        }
+        .popup select {
+            width: 95%; /* Keeping dropdown same */
+            padding: 10px;
+            margin: 10px auto;
+            border-radius: 5px;
+            border: none;
+            font-size: 1em;
+            background: #ddd;
+            color: black;
+            display: block;
+            text-align: center;
+            appearance: none; /* Removes default dropdown styling */
+        }
+        .popup .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+            font-size: 18px;
             font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <img src="agenda-removebg-preview (2).png" class="logo" alt="KTU Agenda Logo"> <!-- Logo -->
+    <img src="agenda-removebg-preview (2).png" class="logo" alt="KTU Agenda Logo">
 
     <div class="container">
         <input type="email" class="input-field" placeholder="Enter your email" required>
@@ -72,14 +120,45 @@
         <button class="button" onclick="login()">Login</button>
 
         <div class="signup-text">
-            Already have an account? <a href="signup.html">Sign Up</a>
+            Don't have an account? <a onclick="openSignup()">Sign Up</a>
         </div>
+    </div>
+
+    <!-- Signup Popup -->
+    <div id="signupPopup" class="popup">
+        <span class="close" onclick="closeSignup()">&times;</span>
+        <h3>Sign Up</h3>
+        <input type="text" class="input-field" placeholder="First Name" required>
+        <input type="text" class="input-field" placeholder="Last Name" required>
+       
+        <input type="tel" class="input-field" placeholder="Phone Number" required>
+        <input type="email" class="input-field" placeholder="Email ID" required>
+        <input type="password" class="input-field" placeholder="Create Password" required>
+        <select class="input-field">
+            <option value="" disabled selected>Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+        <button class="button" onclick="submitSignup()">Sign Up</button>
     </div>
 
     <script>
         function login() {
-            alert("Login function will be implemented soon!");
-            // Redirect or add backend logic here
+            window.location.href = "calendar.html";
+        }
+
+        function openSignup() {
+            document.getElementById("signupPopup").style.display = "block";
+        }
+
+        function closeSignup() {
+            document.getElementById("signupPopup").style.display = "none";
+        }
+
+        function submitSignup() {
+            alert("Signup successful! Now, log in.");
+            closeSignup();
         }
     </script>
 

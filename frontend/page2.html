@@ -18,7 +18,7 @@
             color: white;
         }
         .logo {
-            width: 300px; /* Increased Logo Size */
+            width: 300px;
             height: auto;
             margin-bottom: 20px;
         }
@@ -60,12 +60,12 @@
 </head>
 <body>
 
-    <img src="agenda-removebg-preview (2).png" class="logo" alt="KTU Agenda Logo"> <!-- Larger Logo -->
+    <img src="agenda-removebg-preview (2).png" class="logo" alt="KTU Agenda Logo">
 
     <div class="container">
-        <input type="text" class="input-field" placeholder="Enter your name" required>
+        <input type="text" id="name" class="input-field" placeholder="Enter your name" required>
 
-        <select class="dropdown">
+        <select id="semester" class="dropdown">
             <option value="" disabled selected>Select Semester</option>
             <option value="1">Semester 1</option>
             <option value="2">Semester 2</option>
@@ -77,18 +77,48 @@
             <option value="8">Semester 8</option>
         </select>
 
-        <select class="dropdown">
+        <select id="role" class="dropdown">
             <option value="" disabled selected>Select Role</option>
             <option value="student">Student</option>
             <option value="faculty">Faculty</option>
         </select>
 
-        <button class="button" onclick="redirectToLogin()">Next</button>
+        <button class="button" onclick="registerUser()">Next</button>
     </div>
 
     <script>
-        function redirectToLogin() {
-            window.location.href = "login.html"; // Redirect to login page
+        async function registerUser() {
+            const name = document.getElementById("name").value;
+            const semester = document.getElementById("semester").value;
+            const role = document.getElementById("role").value;
+
+            if (!name || !semester || !role) {
+                alert("Please fill all fields before proceeding.");
+                return;
+            }
+
+            const userData = { name, semester, role };
+
+            try {
+                const response = await fetch("http://localhost:5000/register", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(userData)
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert("Registration successful! Redirecting to login...");
+                    window.location.href = "login.html";
+                } else {
+                    alert("Error: " + result.message);
+                }
+            } catch (error) {
+                alert("Failed to connect to server.");
+                console.error("Error:", error);
+            }
         }
     </script>
 
