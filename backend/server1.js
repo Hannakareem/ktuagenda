@@ -47,20 +47,19 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model("User", userSchema);
 
 // Route to handle /register (with name, semester, and role only)
-// Route to handle /signup (with name, semester, and role only)
 app.post("/register", async (req, res) => {
     try {
         const { name, semester, role } = req.body;
 
         // Validate required fields
-        if (!name || !semester || !role) {
-            return res.status(400).json({ message: "All fields are required" });
-        }
+        // if (!name || !semester || !role) {
+        //     return res.status(400).json({ message: "All fields are required" });
+        // }
 
-        // Check if role is valid
-        if (!["student", "faculty"].includes(role)) {
-            return res.status(400).json({ message: "Invalid role" });
-        }
+        // // Check if role is valid
+        // if (!["student", "faculty"].includes(role)) {
+        //     return res.status(400).json({ message: "Invalid role" });
+        // }
 
         // Create and save the new user
         const newUser = new User({ name, semester, role });
@@ -74,14 +73,13 @@ app.post("/register", async (req, res) => {
 });
 
 
-
 // Route to handle /signup (with all fields)
 app.post("/signup", async (req, res) => {
     try {
-        const { firstName, lastName, gender, phoneNumber, email, password, name, semester, role } = req.body;
+        const { firstName, lastName, gender, phoneNumber, email, password, semester, role } = req.body;
 
         // Validate required fields for signup
-        if (!firstName || !lastName || !gender || !phoneNumber || !email || !password || !name || !semester || !role) {
+        if (!firstName || !lastName || !gender || !phoneNumber || !email || !password ||  !semester || !role) {
             return res.status(400).json({ message: "All fields are required" });
         }
 
